@@ -1,0 +1,5 @@
+name: Flashtest
+version: '${project.version}'
+main: dev.bronzylobster.flashtest.Flashtest
+api-version: 1.19
+authors: [ BL40, Bardja39 ]
