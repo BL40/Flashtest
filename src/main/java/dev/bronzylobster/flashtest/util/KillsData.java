@@ -64,7 +64,7 @@ public class KillsData {
             Connection c = this.getConnection();
             Statement s = c.createStatement();
 
-            s.executeUpdate("UPDATE sword SET kills = " + kills + " WHERE ID = '" + ID + "')");
+            s.executeUpdate("UPDATE sword SET kills = " + kills + " WHERE ID = '" + ID + "'");
 
             s.close();
             c.close();

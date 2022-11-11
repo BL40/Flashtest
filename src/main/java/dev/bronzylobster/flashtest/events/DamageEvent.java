@@ -19,10 +19,8 @@ public class DamageEvent extends Event {
     private static final HandlerList HANDLER_LIST = new HandlerList();
     private static int itemID = 0;
     private KillsData db;
-    private Flashtest plugin;
 
-    DamageEvent() {
-        this.plugin = plugin;
+    {
         try {
           db = new KillsData();
         } catch (Exception e) {

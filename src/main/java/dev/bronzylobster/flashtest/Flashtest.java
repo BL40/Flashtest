@@ -3,8 +3,7 @@ package dev.bronzylobster.flashtest;
 import dev.bronzylobster.flashtest.listeners.HitListener;
 import org.bukkit.plugin.java.JavaPlugin;
 
-import java.io.File;
-import java.io.IOException;
+import java.io.File; 
 import java.util.logging.Logger;
 
 public final class Flashtest extends JavaPlugin {
