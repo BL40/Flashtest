@@ -6,7 +6,7 @@
 
     <groupId>dev.bronzylobster</groupId>
     <artifactId>flashtest</artifactId>
-    <version>0.0.3-43</version>
+    <version>0.0.4-44</version>
     <packaging>jar</packaging>
 
     <name>Flashtest</name>

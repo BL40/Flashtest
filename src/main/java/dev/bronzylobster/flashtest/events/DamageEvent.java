@@ -1,6 +1,5 @@
 package dev.bronzylobster.flashtest.events;
 
-import dev.bronzylobster.flashtest.Flashtest;
 import dev.bronzylobster.flashtest.util.KillsData;
 import net.kyori.adventure.text.Component;
 import org.bukkit.entity.LivingEntity;
