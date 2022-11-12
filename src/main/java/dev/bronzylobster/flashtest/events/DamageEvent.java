@@ -1,6 +1,6 @@
 package dev.bronzylobster.flashtest.events;
 
-import dev.bronzylobster.flashtest.util.KillsData;
+import dev.bronzylobster.flashtest.util.DataBase;
 import net.kyori.adventure.text.Component;
 import org.bukkit.entity.LivingEntity;
 import org.bukkit.event.Event;
@@ -16,12 +16,11 @@ import java.util.List;
 public class DamageEvent extends Event {
 
     private static final HandlerList HANDLER_LIST = new HandlerList();
-    private static int itemID = 0;
-    private KillsData db;
+    private DataBase db;
 
     {
         try {
-          db = new KillsData();
+          db = new DataBase();
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -29,6 +28,8 @@ public class DamageEvent extends Event {
 
     public DamageEvent(LivingEntity damager, LivingEntity damagee, double damage) {
         EntityEquipment equipment = damager.getEquipment();
+        String nick = damager.getName();
+
         if (equipment instanceof PlayerInventory) {
             equipment.getItemInMainHand();
         } else {
@@ -40,12 +41,14 @@ public class DamageEvent extends Event {
             List<Component> lore = meta.hasLore() ? meta.lore() : new ArrayList<>();
             if (damage >= damagee.getHealth()) {
                 if (lore.isEmpty()) {
+                    int itemID = db.getID("sword");
                     lore.add(0, Component.text("Kills count: 1"));
                     lore.add(1, Component.text("Item ID: " + itemID++));
-                    db.add(String.valueOf(lore.get(1)), 1);
+                    db.setID("sword", itemID);
+                    db.add("sword", String.valueOf(lore.get(1)), 1, nick);
                 } else {
-                    int x = db.get(String.valueOf(lore.get(1)));
-                    db.set(String.valueOf(lore.get(1)), ++x);
+                    int x = db.getA("sword", String.valueOf(lore.get(1)));
+                    db.set("sword", String.valueOf(lore.get(1)), ++x);
                     lore.set(0, Component.text("Kills count: " + x));
                 }
                 meta.lore(lore);
