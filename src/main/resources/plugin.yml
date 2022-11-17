@@ -3,3 +3,13 @@ version: '${project.version}'
 main: dev.bronzylobster.flashtest.Flashtest
 api-version: 1.19
 authors: [ BL40, Bardja39 ]
+permissions :
+  item.create:
+      description: "Create new item"
+      default: op
+commands:
+  create:
+      description: "Create new item in your hand"
+      usage: "/create"
+      permission: item.create
+      permission-message: "You do not have permission to use this command"
